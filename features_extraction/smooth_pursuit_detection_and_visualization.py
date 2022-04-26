@@ -16,12 +16,13 @@ attendings = [1,2,9]
 residents = [4,5,6]
 fellows = [3,7,8,10,11]
 
+AOI_threshold = 130 #distance of 3° in visual angle (130px with our setup) recommended by previous literature 17,20
+smooth_pursuit_threshold = 72
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 pd.options.display.width = None
 
 df = pd.read_csv(r'all_experts_one_sheet_gaze_paper.csv')
 df_tooltip = pd.read_csv(r'detections_vitrector_gaze_paper.csv', usecols=['frame_tooltip','x_tooltip', 'y_tooltip'])
-# detections_vitrector_gaze_paper detections_membranectomy_gaze_paper detections_endolaser_gaze_paper
 
 
 fig,ax = plt.subplots()
@@ -42,10 +43,9 @@ def main():
         df_merged_notna['prev_y_tooltip'] = df_merged_notna['y_tooltip'].shift()
         df_merged_notna['dist_tooltip'] = df_merged_notna.apply(
             lambda row: (np.sqrt(((row.x_tooltip-row.prev_x_tooltip)**2 + (row.y_tooltip-row.prev_y_tooltip)**2))), axis=1)
-        #is overlap when <130 (3 degree)
+        #is overlap when <AOI_threshold
         df_merged_notna['is_overlap'] = df_merged_notna.apply(
-            lambda row: (np.sqrt(((row.x-row.x_tooltip)**2 + (row.y-row.y_tooltip)**2)) < 130), axis=1) #add condition for true or false ie < 130
-
+            lambda row: (np.sqrt(((row.x-row.x_tooltip)**2 + (row.y-row.y_tooltip)**2)) < AOI_threshold), axis=1)
         df_merged_notna = df_merged_notna.astype(float)
         #convert to seconds
         df_merged_notna['frame'] = df_merged_notna['frame'].div(60)
@@ -69,25 +69,21 @@ def main():
 
         #surgeon gaze
         #identifying potential smooth pursuit when speed of gaze < 72px/frame or 100 deg/s
-        df_merged_notna['potential_pursuit'] = np.where((df_merged_notna.dist < 72) &
-                                                        # (df_merged_notna.rolling_speed_tooltip > 1) &
-                                                        # (df_merged_notna.rolling_speed_gaze > 1) &
+        df_merged_notna['potential_pursuit'] = np.where((df_merged_notna.dist < smooth_pursuit_threshold) &
+                                                        (df_merged_notna.rolling_speed_tooltip > 1) &
+                                                        (df_merged_notna.rolling_speed_gaze > 1) &
                                                         (df_merged_notna.is_overlap == True), -20, 0)
 
         df_merged_notna['potential_pursuit'].replace(0, np.nan, inplace=True)
         ax.scatter(df_merged_notna.frame, df_merged_notna.potential_pursuit, label = 'Potential smooth pursuit')
-
-
-
-
 
         #
         # #speed of tooltip
         #ax.plot((df_merged_notna.frame), df_merged_notna.x_tooltip)
     # line
     print(df_merged_notna.head(10))
-    plt.axhline(y=130, color='r', linestyle='-', label = 'Overlap w/ tooltip - threshold')
-    plt.axhline(y=72, color='b', linestyle='-', label = 'Smooth pursuit threshold')
+    plt.axhline(y=AOI_threshold, color='r', linestyle='-', label = 'Overlap w/ tooltip - threshold')
+    plt.axhline(y=smooth_pursuit_threshold, color='b', linestyle='-', label = 'Smooth pursuit threshold')
     #plt.axhline(y=433, color='b', linestyle='-', label = 'Smooth pursuit threshold (433 px/s)')
 
     #plt.title('Distance to AoI - Vitrector tooltip')
