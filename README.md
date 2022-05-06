@@ -5,7 +5,7 @@ An Open-Source Hardware-Agnostic Gaze-Tracking Platform for Surgical Behavior An
 Research-grade eye gaze trackers are expensive and not widely available. Also, the software employed for data analysis is not open-source. This code make it possible to any researcher to extract gaze data from the overlay data provided by manufacturers and to perform features extraction such as:
 - Identification of saccades, fixations, and smooth pursuit;
 - Dynamic generation of areas of interest (AOI) via Deep learning;
-The code is also compatible with any set of x,y coordinates extracted from any eye tracking method such as https://github.com/brownhci/WebGazer
+The code is also compatible with any set of x,y coordinates extracted from any eye tracking method such as [Webgazer with WebGazer.js](https://github.com/brownhci/WebGazer).
 
 This project would not be possible without the previous work from:
 - https://github.com/dbolya/yolact
@@ -24,7 +24,7 @@ For the extraction of features, set up a Python3 environment and install the add
 ```python
 pip install opencv-python numpy matplotlib scipy pandas
 ```
-For the YOLACT++ model, please follow the original requirements [here] (https://github.com/dbolya/yolact#installation).
+For the YOLACT++ model, please follow the original requirements [here](https://github.com/dbolya/yolact#installation).
 
 ## Running the code
 To reproduce the results of the paper, the following steps need to be taken:
