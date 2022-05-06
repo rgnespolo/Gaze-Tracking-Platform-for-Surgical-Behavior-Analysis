@@ -8,8 +8,8 @@ Research-grade eye gaze trackers are expensive and not widely available. Also, t
 The code is also compatible with any set of x,y coordinates extracted from any eye tracking method such as [Webgazer with WebGazer.js](https://github.com/brownhci/WebGazer).
 
 This project would not be possible without the previous work from:
-- https://github.com/dbolya/yolact
-- https://github.com/tmalsburg/saccades
+- [You Only Look At CoefficienTs](https://github.com/dbolya/yolact)
+- [Saccade and Fixation Detection in R](https://github.com/tmalsburg/saccades)
 
 Please cite both works when implementing this framework in your research.
 
