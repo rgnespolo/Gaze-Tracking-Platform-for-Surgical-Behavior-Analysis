@@ -24,7 +24,7 @@ For the extraction of features, set up a Python3 environment and install the add
 ```python
 pip install opencv-python numpy matplotlib scipy pandas
 ```
-For the YOLACT++ model, please follow the original requirements [here.] (https://github.com/dbolya/yolact#installation).
+For the YOLACT++ model, please follow the original requirements [here] (https://github.com/dbolya/yolact#installation).
 
 ## Running the code
 To reproduce the results of the paper, the following steps need to be taken:
