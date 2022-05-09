@@ -28,6 +28,6 @@ For the YOLACT++ model, please follow the original requirements [here](https://g
 
 ## Running the code
 To reproduce the results of the paper, the following steps need to be taken:
-- Record the gaze overlay information with the OBStudio Screen recorder.
+- Record the gaze overlay information with the OBStudio Screen recorder (or take advantage of our sample videos located in the folder *sample_data/gaze_overlay*)
 - Run *extract_gaze_coord_from_overlay.py* located in the folder *data_extraction*
 - Choose the desired feature to be extracted running any of the codes from the folder *features_extraction*
