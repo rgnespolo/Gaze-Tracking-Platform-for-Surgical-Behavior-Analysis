@@ -3,7 +3,9 @@ An Open-Source Hardware-Agnostic Gaze-Tracking Platform for Surgical Behavior An
 
 Paper published with this work:
 ```
-Nespolo, R.G., Cole, E., Wang, D., Yi, D. and Leiderman, Y.I., 2022. A Platform for Tracking Surgeon⁠-and Observer⁠-Gaze as a Surrogate for Attention in Ophthalmic Surgery. Ophthalmology Science. DOI: https://doi.org/10.1016/j.xops.2022.100246
+Nespolo, R.G., Cole, E., Wang, D., Yi, D. and Leiderman, Y.I., 2022. 
+A Platform for Tracking Surgeon⁠-and Observer⁠-Gaze as a Surrogate for Attention in Ophthalmic Surgery. 
+Ophthalmology Science. DOI: https://doi.org/10.1016/j.xops.2022.100246
 ```
 
 ## Why this exist?
