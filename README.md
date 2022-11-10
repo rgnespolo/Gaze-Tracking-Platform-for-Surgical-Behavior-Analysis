@@ -1,6 +1,11 @@
 # Gaze-Tracking Platform for Surgical Behavior Analysis
 An Open-Source Hardware-Agnostic Gaze-Tracking Platform for Surgical Behavior Analysis of Ophthalmologists
 
+Paper published with this work:
+```
+Nespolo, R.G., Cole, E., Wang, D., Yi, D. and Leiderman, Y.I., 2022. A Platform for Tracking Surgeon⁠-and Observer⁠-Gaze as a Surrogate for Attention in Ophthalmic Surgery. Ophthalmology Science. DOI: https://doi.org/10.1016/j.xops.2022.100246
+```
+
 ## Why this exist?
 Research-grade eye gaze trackers are expensive and not widely available. Also, the software employed for data analysis is not open-source. This code make it possible to any researcher to extract gaze data from the overlay data provided by manufacturers and to perform features extraction such as:
 - Identification of saccades, fixations, and smooth pursuit;
